@@ -1,17 +1,18 @@
 #!/bin/bash
 
-# Check if a key name is provided
-if [ -z "$1" ]; then
-  echo "Usage: $0 <key_name>"
-  echo "Please provide a key name as an argument."
+# Check if a key name and email are provided
+if [ -z "$1" ] || [ -z "$2" ]; then
+  echo "Usage: $0 <key_name> <email>"
+  echo "Please provide a key name and an email address as arguments."
   exit 1
 fi
 
-# Variable for the key name
+# Variables for the key name and email
 KEY_NAME=$1
+EMAIL=$2
 
 # Generate SSH key
-ssh-keygen -t ed25519 -C "dhanushanthp@gmail.com" -f ~/.ssh/id_ed25519_$KEY_NAME
+ssh-keygen -t ed25519 -C "$EMAIL" -f ~/.ssh/id_ed25519_$KEY_NAME
 
 # Start the SSH agent
 eval "$(ssh-agent -s)"
@@ -27,7 +28,7 @@ touch ~/.ssh/config
 if ! grep -q "Host github.com-$KEY_NAME" ~/.ssh/config; then
   # Append configuration to the SSH config file
   cat <<EOL >> ~/.ssh/config
-Host github.com
+Host github.com-$KEY_NAME
   HostName github.com
   User git
   AddKeysToAgent yes
