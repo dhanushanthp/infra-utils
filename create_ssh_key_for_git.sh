@@ -27,7 +27,7 @@ touch ~/.ssh/config
 if ! grep -q "Host github.com-$KEY_NAME" ~/.ssh/config; then
   # Append configuration to the SSH config file
   cat <<EOL >> ~/.ssh/config
-Host github.com-$KEY_NAME
+Host github.com
   HostName github.com
   User git
   AddKeysToAgent yes
