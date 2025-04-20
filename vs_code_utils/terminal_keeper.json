@@ -1,0 +1,40 @@
+{
+    "$schema": "https://cdn.statically.io/gh/nguyenngoclongdev/cdn/main/schema/v10/terminal-keeper.json",
+    "theme": "your-theme-name",
+    "active": "default",
+    "activateOnStartup": true,
+    "keepExistingTerminals": false,
+    "sessions": {
+        "default": [
+            {
+                "name": "Session 1",
+                "autoExecuteCommands": true,
+                "icon": "desired-icon",
+                "color": "terminal.ansiBlue",
+                "commands": [
+                    "command for session 1"
+                ]
+            },
+            [
+                {
+                    "name": "Session 2A",
+                    "autoExecuteCommands": true,
+                    "icon": "desired-icon",
+                    "color": "terminal.ansiRed",
+                    "commands": [
+                        "command for session 2A"
+                    ]
+                },
+                {
+                    "name": "Session 2B",
+                    "autoExecuteCommands": true,
+                    "icon": "desired-icon",
+                    "color": "terminal.ansiYellow",
+                    "commands": [
+                        "command for session 2B"
+                    ]
+                }
+            ]
+        ]
+    }
+}
